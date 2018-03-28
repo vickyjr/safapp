@@ -11,12 +11,16 @@ export class RestClientService {
 
   private base_url: string;
   private base_auth_url: string;
+  private stkpush_url: string;
+  private token_url: string;
   private headers: any;
   private options: any;
 
   constructor(private httpClient: HttpClient) {
     this.base_url = 'https://jsonplaceholder.typicode.com/';
     this.base_auth_url = 'https://safapp.vitaldigitalmedia.net/auth.php';
+    this.stkpush_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+    this.token_url = 'https://safapp.vitaldigitalmedia.net/auth.php/';
     this.setHeaders();
   }
 
@@ -37,6 +41,16 @@ export class RestClientService {
   getPhotos(): Observable<any> {
     this.setHeaders();
     return this.httpClient.get<any>(`${this.base_url}photos/?_start=15&_limit=15`, this.options);
+  }
+
+  generateToken(): Observable<any> {
+    this.setHeaders();
+    return this.httpClient.get<TokenResponse>(this.token_url, this.options);
+  }
+
+  stkPush(post: any): Observable<any> {
+    this.setHeaders();
+    return this.httpClient.post<any>(this.stkpush_url, post, this.options);
   }
 
 }

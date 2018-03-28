@@ -7,16 +7,32 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let photo of photos" (click)="itemClicked(photo.id)">
-      <ion-avatar item-start>
-        <img src="{{photo.thumbnailUrl}}">
-      </ion-avatar>
-      <h2>{{photo.id}}</h2>
-      <p>{{photo.title}}</p>
-      <ion-icon ios="trash" md="trash"></ion-icon>
-    </ion-item>
-  </ion-list>
-  <button ion-button full outline color="secondary" (click)="checkout()">Checkout</button>
-
+  <div *ngIf="!confirmPage">
+    <ion-list>
+      <ion-item *ngFor="let photo of photos" (click)="itemClicked(photo.id)">
+        <ion-avatar item-start>
+          <img src="{{photo.thumbnailUrl}}">
+        </ion-avatar>
+        <h2>{{photo.id}}</h2>
+        <p>{{photo.title}}</p>
+        <ion-icon ios="trash" md="trash"></ion-icon>
+      </ion-item>
+    </ion-list>
+    <button ion-button full outline color="secondary" (click)="checkout()">Checkout</button>
+  </div>
+  <div *ngIf="confirmPage">
+    <ion-list>
+      <ion-item>
+        <b>Token:</b> {{token.access_token}}
+      </ion-item>
+      <ion-item>
+        <b>Validity:</b> {{token.expires_in}}
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Enter mobile number</ion-label>
+        <ion-input placeholder="Mobile number"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button full outline color="secondary" (click)="confirm()">Confirm</button>
+  </div>
 </ion-content>
