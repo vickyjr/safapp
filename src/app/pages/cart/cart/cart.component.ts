@@ -11,8 +11,8 @@ export class CartComponent implements OnInit {
   token: TokenResponse;
   confirmPage: boolean;
   lipaNaMpesaRequest: LipaNaMpesaRequest;
-  private total: number;
-  private is_success: boolean;
+  total: number;
+  is_success: boolean;
 
   constructor(private cartService: CartService,
               private restclientService: RestClientService) {
