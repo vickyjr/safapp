@@ -11,6 +11,7 @@
     <img src="{{photo.url}}" alt="{{photo.title}}">
     <div style="padding: 10px">
       <p>{{photo.title}}</p>
+      <p>Ksh {{photo.id + 10}}</p>
       <button ion-button (click)="addToCart()">Add to cart</button>
       <button ion-button color="secondary" (click)="favorite()">Favorite</button>
     </div>

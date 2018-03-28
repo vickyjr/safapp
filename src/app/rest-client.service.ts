@@ -2,15 +2,10 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
 
-class PhotosResponse {
-  res: Photo[];
-}
-
 @Injectable()
 export class RestClientService {
 
   private base_url: string;
-  private base_auth_url: string;
   private stkpush_url: string;
   private token_url: string;
   private headers: any;
@@ -18,7 +13,6 @@ export class RestClientService {
 
   constructor(private httpClient: HttpClient) {
     this.base_url = 'https://jsonplaceholder.typicode.com/';
-    this.base_auth_url = 'https://safapp.vitaldigitalmedia.net/auth.php';
     this.stkpush_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
     this.token_url = 'https://safapp.vitaldigitalmedia.net/auth.php/';
     this.setHeaders();

@@ -7,7 +7,7 @@ import {RestClientService} from "../../../rest-client.service";
   templateUrl: './cart.component.html'
 })
 export class CartComponent implements OnInit {
-  private photos: Photo[];
+  photos: Photo[];
   token: TokenResponse;
   confirmPage: boolean;
   lipaNaMpesaRequest: LipaNaMpesaRequest;
