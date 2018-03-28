@@ -11,3 +11,5 @@ interface LipaNaMpesaRequest {
   AccountReference: string;
   TransactionDesc: string;
 }
+
+

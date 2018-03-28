@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-  <div *ngIf="!confirmPage">
+  <div *ngIf="!confirmPage && !is_success">
     <ion-list>
       <ion-item *ngFor="let photo of photos" (click)="itemClicked(photo.id)">
         <ion-avatar item-start>
@@ -17,10 +17,13 @@
         <p>{{photo.title}}</p>
         <ion-icon ios="trash" md="trash"></ion-icon>
       </ion-item>
+      <ion-item><b>Total:</b> {{total}}</ion-item>
+      <ion-item>
+        <button ion-button block color="secondary" (click)="checkout()">Checkout</button>
+      </ion-item>
     </ion-list>
-    <button ion-button block color="secondary" (click)="checkout()">Checkout</button>
   </div>
-  <div *ngIf="confirmPage">
+  <div *ngIf="confirmPage  && !is_success">
     <ion-list>
       <ion-item>
         <b>Token:</b> {{token.access_token}}
@@ -32,7 +35,15 @@
         <ion-label color="primary">Enter mobile number</ion-label>
         <ion-input placeholder="Mobile number"></ion-input>
       </ion-item>
+      <ion-item>
+        <button ion-button block color="secondary" (click)="confirm()">Confirm</button>
+      </ion-item>
     </ion-list>
-    <button ion-button block color="secondary" (click)="confirm()">Confirm</button>
+  </div>
+  <div *ngIf="is_success">
+    The transaction was successfull.
+  </div>
+  <div *ngIf="confirmPage  && is_success">
+    The transaction failed.
   </div>
 </ion-content>
