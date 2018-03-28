@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Safaricom E-commerce
+      Cart
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -14,6 +14,9 @@
       </ion-avatar>
       <h2>{{photo.id}}</h2>
       <p>{{photo.title}}</p>
+      <ion-icon ios="trash" md="trash"></ion-icon>
     </ion-item>
   </ion-list>
+  <button ion-button full outline color="secondary" (click)="checkout()">Checkout</button>
+
 </ion-content>

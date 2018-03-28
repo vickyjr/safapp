@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Item Details
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <img src="{{photo.url}}" alt="{{photo.title}}">
+    <div style="padding: 10px">
+      <p>{{photo.title}}</p>
+      <button ion-button (click)="addToCart()">Add to cart</button>
+      <button ion-button color="secondary" (click)="favorite()">Favorite</button>
+    </div>
+  </ion-card>
+</ion-content>

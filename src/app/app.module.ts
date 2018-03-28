@@ -8,11 +8,16 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {RestClientService} from "./rest-client.service";
 import {HttpClientModule} from "@angular/common/http";
+import { ItemComponent } from './pages/item/item/item.component';
+import { CartComponent } from './pages/cart/cart/cart.component';
+import {CartService} from "./cart.service";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ItemComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -22,12 +27,15 @@ import {HttpClientModule} from "@angular/common/http";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ItemComponent,
+    CartComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
     RestClientService,
+    CartService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

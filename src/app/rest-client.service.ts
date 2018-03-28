@@ -29,6 +29,11 @@ export class RestClientService {
     this.options = {headers: this.headers};
   }
 
+  getPhoto(id: number): Observable<any> {
+    this.setHeaders();
+    return this.httpClient.get<any>(`${this.base_url}photos/${id}/`, this.options);
+  }
+
   getPhotos(): Observable<any> {
     this.setHeaders();
     return this.httpClient.get<any>(`${this.base_url}photos/?_start=15&_limit=15`, this.options);
